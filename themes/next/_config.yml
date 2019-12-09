@@ -111,10 +111,10 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-#scheme: Muse
+scheme: Muse
 #scheme: Mist
 #scheme: Pisces
-scheme: Gemini
+#scheme: Gemini
 
 
 # ---------------------------------------------------------------
@@ -155,6 +155,7 @@ links_layout: block
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
 #avatar: /images/avatar.gif
+avatar: /uploads/avatar.jpg
 
 # Table Of Contents in the Sidebar
 toc:
@@ -695,7 +696,8 @@ pace: false
 pace_theme: pace-theme-minimal
 
 # Canvas-nest
-canvas_nest: false
+canvas_nest: true
+
 
 # three_waves
 three_waves: false
