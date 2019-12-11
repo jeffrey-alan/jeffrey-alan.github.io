@@ -102,6 +102,7 @@ deploy:
   type: git
   repo: 
       github: https://github.com/jeffrey-alan/jeffrey-alan.github.io.git
+      tenxun: git@49.234.41.237:/home/git/blog.git
   branch: master
 
 
