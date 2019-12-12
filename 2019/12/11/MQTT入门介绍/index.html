@@ -88,7 +88,7 @@
 <meta property="og:description" content="简述MQTT（Message Queuing Telemetry Transport，消息队列遥测传输协议），是一种基于发布&#x2F;订阅（publish&#x2F;subscribe）模式的”轻量级”通讯协议，该协议构建于TCP&#x2F;IP协议上，由IBM在1999年发布。MQTT最大优点在于，可以以极少的代码和有限的带宽，为连接远程设备提供实时可靠的消息服务。作为一种低开销、低带宽占用的即时通讯协议，使其在物联网、小">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http:&#x2F;&#x2F;tc.llx-cn.com&#x2F;20191211162544.png">
-<meta property="og:updated_time" content="2019-12-11T08:27:15.337Z">
+<meta property="og:updated_time" content="2019-12-12T00:37:10.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;tc.llx-cn.com&#x2F;20191211162544.png">
 
@@ -413,10 +413,22 @@
 
       
         <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>MQTT（Message Queuing Telemetry Transport，消息队列遥测传输协议），是一种基于发布/订阅（publish/subscribe）模式的”轻量级”通讯协议，该协议构建于TCP/IP协议上，由IBM在1999年发布。MQTT最大优点在于，可以以极少的代码和有限的带宽，为连接远程设备提供实时可靠的消息服务。作为一种低开销、低带宽占用的即时通讯协议，使其在物联网、小型设备、移动应用等方面有较广泛的应用。MQTT是一个基于客户端-服务器的消息发布/订阅传输协议。</p>
+<a id="more"></a>
+
 <p>MQTT协议是轻量、简单、开放和易于实现的，这些特点使它适用范围非常广泛。在很多情况下，包括受限的环境中，如：机器与机器（M2M）通信和物联网（IoT）。其在，通过卫星链路通信传感器、偶尔拨号的医疗设备、智能家居、及一些小型化设备中已广泛使用。</p>
 <p><img src="http://tc.llx-cn.com/20191211162544.png" alt="20191211162544"></p>
 <h1 id="设计规范"><a href="#设计规范" class="headerlink" title="设计规范"></a>设计规范</h1><p>由于物联网的环境是非常特别的，所以MQTT遵循以下设计原则：</p>
-<p>（1）精简，不添加可有可无的功能；<br>（2）发布/订阅（Pub/Sub）模式，方便消息在传感器之间传递；<br>（3）允许用户动态创建主题，零运维成本；<br>（4）把传输量降到最低以提高传输效率；<br>（5）把低带宽、高延迟、不稳定的网络等因素考虑在内；<br>（6）支持连续的会话控制；<br>（7）理解客户端计算能力可能很低；<br>（8）提供服务质量管理；<br>（9）假设数据不可知，不强求传输数据的类型与格式，保持灵活性。</p>
+<ul>
+<li>精简，不添加可有可无的功能；</li>
+<li>发布/订阅（Pub/Sub）模式，方便消息在传感器之间传递；</li>
+<li>允许用户动态创建主题，零运维成本；</li>
+<li>把传输量降到最低以提高传输效率；</li>
+<li>把低带宽、高延迟、不稳定的网络等因素考虑在内；</li>
+<li>支持连续的会话控制；</li>
+<li>理解客户端计算能力可能很低；</li>
+<li>提供服务质量管理；</li>
+<li>假设数据不可知，不强求传输数据的类型与格式，保持灵活性。</li>
+</ul>
 <h1 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h1><p>MQTT协议工作在低带宽、不可靠的网络的远程传感器和控制设备通讯而设计的协议，它具有以下主要的几项特性：</p>
 <ul>
 <li>使用发布/订阅消息模式，提供一对多的消息发布，解除应用程序耦合。这一点很类似于XMPP，但是MQTT的信息冗余远小于XMPP，,因为XMPP使用XML格式文本来传递数据。</li>
@@ -440,7 +452,12 @@
 <li>断开与服务器连接。</li>
 </ol>
 <h2 id="MQTT服务器"><a href="#MQTT服务器" class="headerlink" title="MQTT服务器"></a>MQTT服务器</h2><p>MQTT服务器以称为”消息代理”（Broker），可以是一个应用程序或一台设备。它是位于消息发布者和订阅者之间，它可以：</p>
-<p>（1）接受来自客户的网络连接；<br>（2）接受客户发布的应用信息；<br>（3）处理来自客户端的订阅和退订请求；<br>（4）向订阅的客户转发应用程序消息。</p>
+<ul>
+<li>接受来自客户的网络连接；</li>
+<li>接受客户发布的应用信息；</li>
+<li>处理来自客户端的订阅和退订请求；</li>
+<li>向订阅的客户转发应用程序消息。</li>
+</ul>
 <h2 id="MQTT协议中的订阅、主题、会话"><a href="#MQTT协议中的订阅、主题、会话" class="headerlink" title="MQTT协议中的订阅、主题、会话"></a>MQTT协议中的订阅、主题、会话</h2><ul>
 <li>订阅（Subscription）订阅包含主题筛选器（Topic Filter）和最大服务质量（QoS）。订阅会与一个会话（Session）关联。一个会话可以包含多个订阅。每一个会话中的每个订阅都有一个不同的主题筛选器。</li>
 <li>会话（Session）每个客户端与服务器建立连接后就是一个会话，客户端和服务器之间有状态交互。会话存在于一个网络之间，也可能在客户端和服务器之间跨越多个连续的网络连接。</li>
