@@ -3,34 +3,28 @@
   <entry>
     <title>Nginx入门介绍</title>
     <url>/2019/12/16/Nginx%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/</url>
-    <content><![CDATA[<h1 id="Nginx简介"><a href="#Nginx简介" class="headerlink" title="Nginx简介"></a>Nginx简介</h1><p>Nginx是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，在BSD-like 协议下发行。其特点是占有内存少，并发能力强，事实上nginx的并发能力在同类型的网页服务器中表现较好。</p>
-<p>Nginx 由俄罗斯的程序设计师 lgor Sysoev（伊戈尔·赛索耶夫） 所开发，最初供俄罗斯大型的入口网站及搜索引擎 Rambler 使用。其特点是占用内存少，并发能力强（用于解决 C10K 问题），事实上 Nginx 的并发能力确实在同类型的网页服务器中表现较好。</p>
+    <content><![CDATA[<h1 id="Nginx简介"><a href="#Nginx简介" class="headerlink" title="Nginx简介"></a>Nginx简介</h1><p><img src="http://tc.llx-cn.com/20191216162951.png" alt="20191216162951"></p>
 <p>Nginx 作为一个强大的Web服务器软件，具有高性能、高并发性和低内存占用的特点。此外，其也能提供强大的反向代理功能。根据 Netcraft 公司统计，世界上最繁忙的网站中有 11.48%使用 Nginx 作为其服务器或者代理服务器。</p>
+<a id="more"></a>
+
+<p>Nginx 由俄罗斯的程序设计师 lgor Sysoev（伊戈尔·赛索耶夫） 所开发，最初供俄罗斯大型的入口网站及搜索引擎 Rambler 使用。其特点是占用内存少，并发能力强（用于解决 C10K 问题），事实上 Nginx 的并发能力确实在同类型的网页服务器中表现较好。</p>
 <p>俄罗斯大约有超过20%的虚拟主机采用Nginx作为反向代理服务器。<br>中国大陆使用 nginx 网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。</p>
 <p>基于反向代理的功能，Nginx 作为负载均衡主要有一下几个特点：</p>
 <ul>
-<li><p><strong>高性能</strong>：采用C语言直接开发，编译的形式部署</p>
-</li>
-<li><p><strong>高并发</strong>：采用 epoll NIO，效率非常高</p>
-</li>
-<li><p><strong>低内存</strong>：数据结构紧凑、零拷贝</p>
-</li>
-<li><p>配置简单</p>
-</li>
-<li><p>成本低廉</p>
-</li>
-<li><p>支持 Rewrite 重写规则</p>
-</li>
-<li><p>内置健康检查功能</p>
-</li>
-<li><p>节省带宽</p>
-</li>
-<li><p>稳定性高<br>Nginx入门<br>其他同类服务</p>
-</li>
-<li><p><strong>Apache</strong>： Apache HTTP 服务器是一个模块化的服务器，可以运行在几乎所有广泛使用的计算机平台上。其属于应用服务器。Apache支持支持模块多，性能稳定，Apache本身是静态解析，适合静态HTML、图片等，但可以通过扩展脚本、模块等支持动态页面等。 （Apche可以支持PHPcgiperl,但是要使用Java的话，你需要Tomcat在Apache后台支撑，将Java请求由Apache转发给Tomcat处理。） 缺点：配置相对复杂，自身不支持动态页面。</p>
-</li>
-<li><p><strong>Tomcat</strong>： Tomcat是应用（Java）服务器，它只是一个Servlet(JSP也翻译成Servlet)容器，可以认为是Apache的扩展，但是可以独立于Apache运行。</p>
-</li>
+<li><strong>高性能</strong>：采用C语言直接开发，编译的形式部署</li>
+<li><strong>高并发</strong>：采用 epoll NIO，效率非常高</li>
+<li><strong>低内存</strong>：数据结构紧凑、零拷贝</li>
+<li>配置简单</li>
+<li>成本低廉</li>
+<li>支持 Rewrite 重写规则</li>
+<li>内置健康检查功能</li>
+<li>节省带宽</li>
+<li>稳定性高</li>
+</ul>
+<p>其他同类Web服务</p>
+<ul>
+<li><strong>Apache</strong>： Apache HTTP 服务器是一个模块化的服务器，可以运行在几乎所有广泛使用的计算机平台上。其属于应用服务器。Apache支持支持模块多，性能稳定，Apache本身是静态解析，适合静态HTML、图片等，但可以通过扩展脚本、模块等支持动态页面等。 （Apche可以支持PHPcgiperl,但是要使用Java的话，你需要Tomcat在Apache后台支撑，将Java请求由Apache转发给Tomcat处理。） 缺点：配置相对复杂，自身不支持动态页面。</li>
+<li><strong>Tomcat</strong>： Tomcat是应用（Java）服务器，它只是一个Servlet(JSP也翻译成Servlet)容器，可以认为是Apache的扩展，但是可以独立于Apache运行。</li>
 </ul>
 <h1 id="正向代理和反向代理"><a href="#正向代理和反向代理" class="headerlink" title="正向代理和反向代理"></a>正向代理和反向代理</h1><h2 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h2><p>类似于一个跳板机，通过代理访问外部资源</p>
 <p><img src="http://tc.llx-cn.com/20191216161032.png" alt="20191216161032"></p>
