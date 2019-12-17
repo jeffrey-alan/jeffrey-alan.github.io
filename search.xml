@@ -4,6 +4,8 @@
     <title>Docker入门介绍</title>
     <url>/2019/12/17/Docker%E5%85%A5%E9%97%A8%E4%BB%8B%E7%BB%8D/</url>
     <content><![CDATA[<h1 id="Docker简介"><a href="#Docker简介" class="headerlink" title="Docker简介"></a>Docker简介</h1><p>Docker 使用 Google 公司推出的 Go 语言 进行开发实现，基于Linux 内核的 cgroup，namespace，以及 AUFS 类的 Union FS 等技术，对进程进行封装隔离，属于操作系统层面的虚拟化技术。由于隔离的进程独立于宿主和其它的隔离的进程，因此也称其为容器。</p>
+<a id="more"></a>
+
 <p>Docker 在容器的基础上，进行了进一步的封装，从文件系统、网络互联到进程隔离等等，极大的简化了容器的创建和维护。使得 Docker 技术比传统虚拟机技术更为轻便、快捷Docker。</p>
 <h1 id="Docker-VS-Visual-Machine"><a href="#Docker-VS-Visual-Machine" class="headerlink" title="Docker VS Visual Machine"></a>Docker VS Visual Machine</h1><h2 id="Visual-Machine"><a href="#Visual-Machine" class="headerlink" title="Visual Machine"></a>Visual Machine</h2><p>传统虚拟机技术是虚拟出一套硬件后，在其上运行一个完整操作系统，在该系统上再运行所需应用进程。</p>
 <h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><p>容器内的应用进程直接运行于宿主的内核，容器内没有自己的内核，而且也没有进行硬件虚拟。因此容器比传统虚拟机更轻便。</p>
